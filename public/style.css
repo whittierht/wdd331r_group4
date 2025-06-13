@@ -248,7 +248,7 @@ header {
   --logomark-height: 3em;
   --logomark-padding: 0 1em;
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   display: grid;
   min-height: 40vh;
   place-items: center;
@@ -273,6 +273,7 @@ header::before {
   transform-origin: bottom center;
   animation: sway-trunk 3s ease-in-out infinite alternate;
   border-radius: 4px;
+  z-index: 1;
 }
 header::after {
   content: "";
@@ -281,10 +282,38 @@ header::after {
   left: calc(15% - 125px);
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle at 50% 30%, #4eac94 40%, transparent 31%), radial-gradient(circle at 30% 70%, #56a389 35%, transparent 31%), radial-gradient(circle at 70% 70%, #02faa7 30%, transparent 31%);
+  background: radial-gradient(circle at 50% 30%, #508484 40%, transparent 41%), radial-gradient(circle at 30% 70%, #568ea3 35%, transparent 36%), radial-gradient(circle at 70% 70%, #D6FFE5 30%, transparent 31%);
   border-radius: 50%;
   transform-origin: bottom center;
   animation: sway-leaves 3s ease-in-out infinite alternate;
+  z-index: 1;
+}
+header .container {
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeInSlide 1.2s ease-out forwards;
+  animation-delay: 0.5s;
+}
+header .container h2, header .container p, header .container h1 {
+  color: var(--color-primary);
+}
+header .container a:nth-of-type(-n+2) {
+  color: white;
+}
+header .container > a.link-github {
+  color: var(--color-background);
+}
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes sway-trunk {
   0% {
@@ -307,8 +336,18 @@ header h1 {
   min-height: var(--logomark-height);
   padding: var(--logomark-padding);
   border: 0.16em solid var(--color-secondary);
-  box-shadow: 0.12em 0.12em var(--color-background);
+  border-radius: 0.5em;
+  background: linear-gradient(135deg, var(--color-background) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
   place-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(1) rotate(0deg);
+  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+header h1:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.5em 1em rgba(0, 0, 0, 0.3);
 }
 header h2 {
   max-width: 30ch;
@@ -671,8 +710,14 @@ nav ul li {
   min-height: var(--logomark-height);
   padding: var(--logomark-padding);
   border: 0.16em solid var(--color-secondary);
-  box-shadow: 0.12em 0.12em var(--color-background);
+  border-radius: 0.5em;
+  background: linear-gradient(135deg, var(--color-background) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
   place-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: scale(1) rotate(0deg);
+  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
   position: absolute;
   left: 50%;
   width: 2em;
@@ -681,6 +726,10 @@ nav ul li {
   color: var(--color-primary);
   font-size: 3rem;
   content: "S";
+}
+.page-footer::before:hover {
+  transform: scale(1.2) rotate(5deg);
+  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.5em 1em rgba(0, 0, 0, 0.3);
 }
 .page-footer p:first-child {
   margin-top: 3rem;
@@ -788,7 +837,7 @@ nav ul li {
   width: 1em;
   height: 1em;
   margin-right: 0.25em;
-  fill: currentColor;
+  fill: var(--color-background);
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -3,7 +3,7 @@ header {
   --logomark-padding: 0 1em;
 
   position: relative;
-  overflow: visible;
+  overflow: hidden;
   display: grid;
   min-height: 40vh;
   place-items: center;
@@ -18,7 +18,7 @@ header {
   background-repeat: no-repeat, repeat-x;
   background-position: center bottom, 17px -40px;      
 
- &::before {
+  &::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -29,7 +29,9 @@ header {
     transform-origin: bottom center;
     animation: sway-trunk 3s ease-in-out infinite alternate;
     border-radius: 4px;
+    z-index: 1; 
   }
+
   &::after {
     content: "";
     position: absolute;
@@ -38,14 +40,46 @@ header {
     width: 300px;
     height: 300px;
     background:
-      radial-gradient(circle at 50% 30%, #4eac94 40%, transparent 31%),
-      radial-gradient(circle at 30% 70%, #56a389 35%, transparent 31%),
-      radial-gradient(circle at 70% 70%, #02faa7 30%, transparent 31%);
+      radial-gradient(circle at 50% 30%, #508484 40%, transparent 41%),
+      radial-gradient(circle at 30% 70%, #568ea3 35%, transparent 36%),
+      radial-gradient(circle at 70% 70%, #D6FFE5 30%, transparent 31%);
     border-radius: 50%;
     transform-origin: bottom center;
     animation: sway-leaves 3s ease-in-out infinite alternate;
+    z-index: 1;
+  }
+  .container {
+    position: relative; 
+    z-index: 2; 
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeInSlide 1.2s ease-out forwards;
+    animation-delay: 0.5s;
+
+    h2, p, h1 {
+      color:var(--color-primary);
+    }
+   
   }
 
+    .container a:nth-of-type(-n+2) {
+      color: white;
+    }
+
+    .container > a.link-github {
+      color: var(--color-background);
+    }
+    
+  @keyframes fadeInSlide {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @keyframes sway-trunk {
     0%   { transform: rotate(-2deg); }

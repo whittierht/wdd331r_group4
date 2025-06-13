@@ -87,10 +87,13 @@
 }
 
 .link-github {
+
   svg {
     width: 1em;
     height: 1em;
     margin-right: 0.25em;
-    fill: currentColor;
+    fill: var(--color-background); 
   }
+
+
 }

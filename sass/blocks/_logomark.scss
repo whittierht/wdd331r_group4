@@ -3,6 +3,24 @@
   min-height: var(--logomark-height);
   padding: var(--logomark-padding);
   border: 0.16em solid var(--color-secondary);
-  box-shadow: 0.12em 0.12em var(--color-background);
+  border-radius: 0.5em;
+  background: linear-gradient(135deg, var(--color-background) 0%, rgba(255, 255, 255, 0.05) 100%);
+  box-shadow:
+    0.12em 0.12em 0 var(--color-background),
+    0 0.3em 0.6em rgba(0, 0, 0, 0.2);
   place-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  transform: scale(1) rotate(0deg);
+  box-shadow:
+    0.12em 0.12em 0 var(--color-background),
+    0 0.3em 0.6em rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+
+  &:hover {
+    transform: scale(1.2) rotate(5deg);
+    box-shadow:
+      0.12em 0.12em 0 var(--color-background),
+      0 0.5em 1em rgba(0, 0, 0, 0.3);
+  }
 }
