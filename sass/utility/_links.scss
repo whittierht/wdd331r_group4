@@ -97,3 +97,22 @@
 
 
 }
+
+
+a {
+  color: var(--color-text);
+  text-decoration: underline;
+  transition: color 0.2s ease, background-color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: #1ca180;
+    background-color: var(--link-hover-bg, rgba(0, 204, 194, 0.1));
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px dashed var(--focus-color, #005a99);
+    outline-offset: 2px;
+  }
+}
