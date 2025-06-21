@@ -3,6 +3,9 @@ $color-primary-alt: #568ea3 !default;
 $color-secondary: #508484 !default;
 $color-background: #152828 !default;
 $color-other: #544343 !default;
+$font-family-header: 'Rye', cursive !default;
+$font-family-body: 'Newsreader', serif !default;
+$font-family-other: 'Recursive', monospace !default;
 
 $brand-colors: (
   primary: $color-primary,
@@ -59,7 +62,9 @@ $font-sizes: (
   }
 
   --color-anchor: #{$link-color};
-  --font-family: "Baloo 2", sans-serif;
+  --font-family-header: #{ $font-family-header };
+  --font-family-body:   #{ $font-family-body };
+  --font-family-other:  #{ $font-family-other };
   --font-weight-strong: #{$font-weight-strong};
 
   @each $key, $size in $font-sizes {

@@ -21,10 +21,14 @@
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
-
+    
     // Optional responsive tweak
     @media (min-width: 1440px) {
       max-width: 1320px;
+    }
+
+    a {
+      color: var(--color-background);
     }
 
     a:not(:last-child) {

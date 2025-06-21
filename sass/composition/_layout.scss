@@ -2,8 +2,14 @@
 body {
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: var(--font-family);
+  font-family: var(--font-family-body);
 }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-header);
+
+  }
+
 
 main {
   padding-top: 5vh;
@@ -31,6 +37,7 @@ article {
 article,
 .page-footer,
 #styles {
+  font-family: var(--font-family-other);
   .container {
     width: 100%;
     max-width: 80ch;
