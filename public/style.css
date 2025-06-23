@@ -1,14 +1,19 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Rye&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Rye&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Recursive:wght@300..1000&family=Rye&display=swap");
 :root {
   --color-primary: #d6fff5;
   --color-primary-alt: #568ea3;
   --color-secondary: #508484;
   --color-background: #152828;
-  --color-text: #77d2bb;
+  --color-text: rgb(118.725, 209.575, 187.4164634146);
   --color-light: #fff;
   --color-anchor: #d6fff5;
-  --font-family: "Baloo 2", sans-serif;
+  --font-family-header: Rye, cursive;
+  --font-family-body: Newsreader, serif;
+  --font-family-other: Recursive, monospace;
   --font-weight-strong: 500;
   --font-size-h1: 6rem;
   --font-size-h2: 3rem;
@@ -199,7 +204,11 @@ blockquote::after {
 body {
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: var(--font-family);
+  font-family: var(--font-family-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-header);
 }
 
 main {
@@ -221,6 +230,11 @@ article section {
   padding-bottom: 5vh;
 }
 
+article,
+.page-footer,
+#styles {
+  font-family: var(--font-family-other);
+}
 article .container,
 .page-footer .container,
 #styles .container {
@@ -429,24 +443,30 @@ nav ul li {
   margin: 0.25em;
   padding: 0.25em 0.5em;
   background-color: var(--color-light);
+  color: var(--color-background);
 }
 #about section:nth-child(2)::before {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  width: 100%;
-  height: 0;
-  padding-bottom: 100%;
-  transform: translate(-50%, -50%);
-  transition: 300ms transform ease-in;
-  background-image: radial-gradient(rgba(255, 0, 0, 0) 20%, #b3f8f1 20%, #b3f8f1 25%, rgba(255, 0, 0, 0) 25%, rgba(255, 0, 0, 0) 30%, #b3f8f1 30%, #b3f8f1 40%, rgba(255, 0, 0, 0) 40%, rgba(255, 0, 0, 0) 45%, #b3f8f1 45%, #b3f8f1 50%, rgba(255, 0, 0, 0) 50%);
-  opacity: 0.8;
   content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 200px;
+  height: 300px;
+  transform: translateX(-50%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20300'%3E%3Cpolygon fill='black'%20points='100,10%2050,90%20150,90'/%3E%3Cpolygon fill='black'%20points='100,50%2030,190%20170,190'/%3E%3Cpolygon fill='black'%20points='100,90%2020,260%20180,260'/%3E%3Crect%20x='90'%20y='260'%20width='20'%20height='40'%20fill='black'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom center;
+  border: 4px solid rgb(136, 136, 136);
+  border-radius: 50%;
+  opacity: 0.3;
   z-index: -1;
 }
 @media (max-width: 35rem) {
   #about section:nth-child(2)::before {
-    transform: scale(2) translate(-25%, -25%);
+    width: 140px;
+    height: 210px;
+    transform: translateX(-50%) translateY(5%);
   }
 }
 
@@ -466,6 +486,9 @@ nav ul li {
   #guidelines h3 {
     transform: rotate(-8deg) translateX(-30%);
   }
+}
+#guidelines .link-guidelines {
+  color: var(--color-background);
 }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   #guidelines p:nth-of-type(2) {
@@ -564,6 +587,9 @@ nav ul li {
     max-width: 1320px;
   }
 }
+#files .container a {
+  color: var(--color-background);
+}
 #files .container a:not(:last-child) {
   margin: 0.5rem;
 }
@@ -623,6 +649,9 @@ nav ul li {
 #styles h2 {
   color: var(--color-primary);
 }
+#styles .link-allstyles {
+  color: var(--color-background);
+}
 
 #styles .features li,
 .features.patterned li {
@@ -631,7 +660,7 @@ nav ul li {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-.features.patterned li:nth-last-child(1):nth-child(odd) {
+  .features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -737,7 +766,7 @@ nav ul li {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d2fbf7' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-position: center -34px;
-  color: var(--color-light);
+  color: var(--color-background);
 }
 .page-footer::before {
   display: inline-grid;
@@ -888,3 +917,5 @@ a:focus-visible {
   outline: 2px dashed var(--focus-color, #005a99);
   outline-offset: 2px;
 }
+
+/*# sourceMappingURL=style.css.map */
