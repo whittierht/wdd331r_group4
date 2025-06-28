@@ -8,7 +8,7 @@
   --color-primary-alt: #568ea3;
   --color-secondary: #508484;
   --color-background: #152828;
-  --color-text: rgb(118.725, 209.575, 187.4164634146);
+  --color-text: #77d2bb;
   --color-light: #fff;
   --color-anchor: #d6fff5;
   --font-family-header: Rye, cursive;
@@ -457,7 +457,7 @@ nav ul li {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom center;
-  border: 4px solid rgb(136, 136, 136);
+  border: 4px solid #888888;
   border-radius: 50%;
   opacity: 0.3;
   z-index: -1;
@@ -470,6 +470,9 @@ nav ul li {
   }
 }
 
+#guidelines {
+  margin-top: 80px;
+}
 #guidelines h3 {
   display: inline-block;
   transform: rotate(-8deg) translateX(-10%);
@@ -489,6 +492,7 @@ nav ul li {
 }
 #guidelines .link-guidelines {
   color: var(--color-background);
+  background-color: var(--color-primary);
 }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   #guidelines p:nth-of-type(2) {
@@ -660,7 +664,7 @@ nav ul li {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-  .features.patterned li:nth-last-child(1):nth-child(odd) {
+.features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -917,5 +921,3 @@ a:focus-visible {
   outline: 2px dashed var(--focus-color, #005a99);
   outline-offset: 2px;
 }
-
-/*# sourceMappingURL=style.css.map */
