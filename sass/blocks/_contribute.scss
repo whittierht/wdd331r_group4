@@ -1,5 +1,6 @@
 #about section:nth-child(2) {
   position: relative; }
+  
   #about section:nth-child(2) p:nth-of-type(2) {
     align-self: center;
     margin-top: 2rem;
@@ -7,6 +8,7 @@
     font-size: 1.5em;
     font-weight: var(--font-weight-strong);
     text-align: center; }
+
   #about section:nth-child(2) ul {
     display: flex;
     flex-wrap: wrap;
@@ -14,10 +16,12 @@
     margin: 1rem 0 2rem;
     padding: 0;
     list-style: none; }
+
     #about section:nth-child(2) ul li {
       margin: 0.25em;
       padding: 0.25em 0.5em;
       background-color: var(--color-light); }
+
   #about section:nth-child(2)::before {
     position: absolute;
     top: 60%;
