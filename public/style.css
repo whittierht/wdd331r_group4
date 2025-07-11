@@ -8,7 +8,7 @@
   --color-primary-alt: #568ea3;
   --color-secondary: #508484;
   --color-background: #152828;
-  --color-text: rgb(118.725, 209.575, 187.4164634146);
+  --color-text: #77d2bb;
   --color-light: #fff;
   --color-anchor: #d6fff5;
   --font-family-header: Rye, cursive;
@@ -432,6 +432,9 @@ nav ul {
   padding: 0;
   list-style: none;
 }
+nav ul li {
+  margin: 0.25rem;
+}
 nav ul a {
   position: relative;
   display: inline-grid;
@@ -473,8 +476,22 @@ nav ul a::after {
 nav ul a:hover::after, nav ul a:focus::after {
   transform: translateY(-50%) scaleY(1);
 }
-nav ul li {
-  margin: 0.25rem;
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+  }
+  nav ul li {
+    width: 100%;
+    margin: 0;
+  }
+  nav ul li a {
+    display: block;
+    padding: 1rem 2rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 #about section:nth-child(2) {
@@ -766,7 +783,7 @@ nav ul li {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-  .features.patterned li:nth-last-child(1):nth-child(odd) {
+.features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -864,21 +881,62 @@ nav ul li {
 }
 
 .page-footer {
-  --logomark-height: 2em;
-  --logomark-padding: 0;
   position: relative;
-  padding: 3rem 1rem;
+  padding: 6rem 1rem 3rem;
   background-color: var(--color-primary);
-  background-image: url("images/forestheader.png"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: 0 -38px, 17px -40px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/forestheader.png"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-position: center bottom, center bottom, 17px -40px;
+  background-size: cover, cover, auto;
   color: var(--color-background);
   text-align: center;
-  background-size: cover, auto;
-  background-repeat: no-repeat, repeat-x;
-  background-position: center bottom, 17px -40px;
-  background-position: center -34px;
-  color: var(--color-background);
+  overflow: hidden;
+}
+.page-footer a {
+  position: relative;
+  color: #f8f8d8;
+}
+.page-footer a:hover, .page-footer a:focus {
+  color: #fffbe3;
+}
+.page-footer a:hover::after, .page-footer a:hover::before, .page-footer a:focus::after, .page-footer a:focus::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background-color: #fff688;
+  box-shadow: 0 0 6px 3px rgba(255, 246, 136, 0.6);
+  animation: firefly-blink 1.5s infinite ease-in-out;
+  opacity: 0;
+}
+.page-footer a:hover::after, .page-footer a:focus::after {
+  top: -0.25em;
+  left: 100%;
+  margin-left: 0.4em;
+  width: 6px;
+  height: 6px;
+  opacity: 1;
+}
+.page-footer a:hover::before, .page-footer a:focus::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  top: -0.6em;
+  left: 110%;
+  margin-left: 0.2em;
+  background-color: #ffe48c;
+  box-shadow: 0 0 4px 2px rgba(255, 240, 140, 0.5);
+  animation-delay: 0.3s;
+  opacity: 1;
+}
+@keyframes firefly-blink {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 .page-footer::before {
   display: inline-grid;
@@ -895,12 +953,15 @@ nav ul li {
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   position: absolute;
   left: 50%;
-  width: 2em;
   transform: translate(-50%, -100%);
   background-color: var(--color-background);
   color: var(--color-primary);
   font-size: 3rem;
   content: "S";
+  padding-top: 1rem;
+  z-index: 2;
+  width: 100px;
+  margin-top: 30px;
 }
 .page-footer::before:hover {
   transform: scale(1.2) rotate(5deg);
@@ -910,22 +971,13 @@ nav ul li {
   margin-top: 3rem;
   font-weight: var(--font-weight-strong);
   letter-spacing: 0.03em;
-  text-align: center;
-}
-.page-footer p a {
-  color: inherit;
-}
-.page-footer a {
-  color: var(--color-background) !important;
-}
-.page-footer a:hover {
-  color: white !important;
-}
-.page-footer ul {
-  grid-template-columns: repeat(auto-fit, minmax(12ch, auto));
 }
 .page-footer .container > :last-child {
   margin-bottom: 0;
+}
+
+footer p {
+  color: var(--color-primary);
 }
 
 .skip-link {
@@ -1037,5 +1089,3 @@ a:focus-visible {
   outline: 2px dashed var(--focus-color, #005a99);
   outline-offset: 2px;
 }
-
-/*# sourceMappingURL=style.css.map */
