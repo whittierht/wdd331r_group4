@@ -131,3 +131,14 @@ blockquote {
     font-weight: var(--font-weight-strong);
   }
 }
+
+h2 {
+  color: var(--color-primary) !important;
+  background: var(--color-secondary) !important;
+  border-radius: 10px;
+  padding: 10px !important;
+}
+
+header h2 {
+  background: none !important;
+}
