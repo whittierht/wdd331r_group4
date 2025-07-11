@@ -345,6 +345,16 @@ header .container > a.link-github {
     transform: translateX(6px) rotate(4deg);
   }
 }
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 header h1 {
   display: inline-grid;
   min-height: var(--logomark-height);
@@ -418,6 +428,99 @@ nav ul a:hover::after, nav ul a:focus::after {
 }
 nav ul li {
   margin: 0.25rem;
+}
+
+/* --------------------------------------------
+  SECTION: Contribute
+-------------------------------------------- */
+
+#contribute {
+  background-color: var(--color-background);
+  padding: 5rem 2rem;
+  color: var(--color-primary);
+  border-top: 5px solid var(--color-secondary);
+  border-bottom: 5px solid var(--color-secondary);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeSlideUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+#contribute h2 {  
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+  padding: 0.25em 0.5em;
+  text-align: center;
+  font-family: var(--font-family-header);
+}
+
+#contribute h3 {
+  font-family: var(--font-family-header);
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--color-primary-alt);
+}
+
+#contribute ol {
+  counter-reset: step-counter;
+  list-style: none;
+  padding-left: 0;
+  margin: 2rem 0;
+}
+
+#contribute li {
+  counter-increment: step-counter;
+  margin-bottom: 2rem;
+  padding-left: 2.5rem;
+  position: relative;
+  font-family: var(--font-family-other);
+  color: var(--color-light);
+}
+
+#contribute li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--color-secondary);
+  color: var(--color-background);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+  font-family: var(--font-family-header);
+}
+
+#files .container {
+  background-color: var(--color-primary);
+  outline-color: var(--color-secondary);
+  margin-top: 3rem;
+  border-radius: var(--border-radius);
+}
+
+#files .container a {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#files .container a:hover {
+  background-color: var(--color-primary-alt);
+}
+
+@media (max-width: 600px) {
+  #contribute {
+    padding: 2rem 1rem;
+  }
+
+  #contribute li {
+    padding-left: 2rem;
+  }
 }
 
 #about section:nth-child(2) {
