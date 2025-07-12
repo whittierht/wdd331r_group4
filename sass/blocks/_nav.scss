@@ -7,15 +7,17 @@ nav {
     padding: 0;
     list-style: none;
 
+    li {
+      margin: 0.25rem;
+    }
+
     a {
-    
       position: relative;
       display: inline-grid;
       padding: 0.5rem 0.5rem 0.5rem 2rem;
       color: var(--color-secondary);
       font-size: 1.25rem;
       text-decoration: none;
-
 
       &::before {
         content: "";
@@ -40,20 +42,16 @@ nav {
         content: "";
         position: absolute;
         top: 50%;
-        left: 0.5rem; // left side inside highlight
+        left: 0.5rem;
         transform: translateY(-50%) scaleY(0);
         transform-origin: center bottom;
         width: 1em;
         height: 2.5em;
         background-color: var(--color-secondary);
         clip-path: polygon(
-          /* trunk */
           40% 100%, 60% 100%, 60% 90%, 40% 90%,
-          /* bottom triangle */
           0% 90%, 100% 90%, 50% 70%,
-          /* middle triangle */
           20% 70%, 80% 70%, 50% 50%,
-          /* top triangle */
           35% 50%, 65% 50%, 50% 30%
         );
         z-index: 1;
@@ -65,9 +63,26 @@ nav {
         transform: translateY(-50%) scaleY(1);
       }
     }
+  }
 
-    li {
-      margin: 0.25rem;
+  // 🔽 Add this block for mobile responsiveness
+  @media (max-width: 768px) {
+    ul {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 0;
+    }
+
+    ul li {
+      width: 100%;
+      margin: 0;
+    }
+
+    ul li a {
+      display: block;
+      padding: 1rem 2rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1); // Optional
     }
   }
 }
