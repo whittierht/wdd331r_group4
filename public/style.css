@@ -269,7 +269,7 @@ header {
   min-height: 40vh;
   place-items: center;
   padding: 10vh 2rem;
-  background-image: url("images/forestheader.png"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("images/forestheader.webp"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-position: 0 -38px, 17px -40px;
   color: var(--color-background);
@@ -307,10 +307,13 @@ header::after {
 header .container {
   position: relative;
   z-index: 2;
-  opacity: 0;
-  transform: translateY(-30px);
+  /* opacity: 0; */
+  opacity: 1;
+  /* transform: translateY(-30px);
   animation: fadeInSlide 1.2s ease-out forwards;
-  animation-delay: 0.5s;
+  animation-delay: 0.5s; */
+  transform: none;
+  animation: none;
 }
 header .container h2, header .container p, header .container h1 {
   color: var(--color-primary);
@@ -368,8 +371,10 @@ header h1 {
   place-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   transform: scale(1) rotate(0deg);
-  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  /* box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease; */
+  box-shadow: none;
+  transition: none;
 }
 header h1:hover {
   transform: scale(1.2) rotate(5deg);
@@ -928,13 +933,15 @@ nav ul li {
   position: relative;
   padding: 3rem 1rem;
   background-color: var(--color-primary);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d2fbf7' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d2fbf7' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); */
+  background-image: none;
   background-repeat: repeat-x;
   background-position: center -34px;
   color: var(--color-background);
 }
 .page-footer::before {
-  display: inline-grid;
+  /* display: inline-grid; */
+  display: none; 
   min-height: var(--logomark-height);
   padding: var(--logomark-padding);
   border: 0.16em solid var(--color-secondary);
@@ -969,6 +976,12 @@ nav ul li {
   color: inherit;
 }
 .page-footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
   grid-template-columns: repeat(auto-fit, minmax(12ch, auto));
 }
 .page-footer .container > :last-child {
