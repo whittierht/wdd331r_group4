@@ -78,6 +78,8 @@ select {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    animation: none !important;
+    transition: none !important;
     scroll-behavior: auto !important;
   }
 }
@@ -1079,4 +1081,25 @@ a:hover, a:focus {
 a:focus-visible {
   outline: 2px dashed var(--focus-color, #005a99);
   outline-offset: 2px;
+}
+
+/* === Animation Clean-Up === */
+
+/* Disable tree trunk and leaf swaying animations */
+header::before,
+header::after {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Disable decorative quote SVG animation */
+blockquote::after {
+  animation: none !important;
+  transform: none !important;
+}
+
+/* Optional: also clear any shadows or background visuals if they look weird without motion */
+blockquote::after {
+  background-image: none !important;
+  content: none !important;
 }
