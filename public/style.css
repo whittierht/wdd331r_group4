@@ -8,7 +8,7 @@
   --color-primary-alt: #568ea3;
   --color-secondary: #508484;
   --color-background: #152828;
-  --color-text: #77d2bb;
+  --color-text: rgb(118.725, 209.575, 187.4164634146);
   --color-light: #fff;
   --color-anchor: #d6fff5;
   --font-family-header: Rye, cursive;
@@ -95,17 +95,8 @@ h1 {
   font-size: clamp(2rem, 7vw, var(--font-size-h1));
 }
 
-h2 {
-  font-size: var(--font-size-h2);
-  font-size: clamp(2rem, 4vw, var(--font-size-h2));
-  text-align: center;
-}
-
 #main h2 {
-  background-color: var(--color-secondary);
-  align-self: center;
   color: var(--color-background);
-  padding: 0.25em 0.5em;
 }
 
 h3 {
@@ -201,14 +192,10 @@ blockquote::after {
   font-weight: var(--font-weight-strong);
 }
 
-h2 {
-  color: var(--color-primary) !important;
-  background: var(--color-secondary) !important;
-  border-radius: 10px;
-  padding: 10px !important;
-}
-
 header h2 {
+  margin: auto;
+  padding: 10px;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
   background: none !important;
 }
 
@@ -404,21 +391,32 @@ header .container > a.link-github {
 }
 header h1 {
   display: inline-grid;
-  min-height: var(--logomark-height);
-  padding: var(--logomark-padding);
-  border: 0.16em solid var(--color-secondary);
-  border-radius: 0.5em;
-  background: linear-gradient(135deg, var(--color-background) 0%, rgba(255, 255, 255, 0.05) 100%);
-  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
   place-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform: scale(1) rotate(0deg);
-  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  width: 70%;
+  height: auto;
+  padding: 0.5em;
+  border: 2px solid var(--color-secondary);
+  border-radius: 0.6em;
+  background: linear-gradient(135deg, var(--color-background), transparent 70%), repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 4px, transparent 4px 8px);
+  box-shadow: inset 0 0 0 1px var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  user-select: none;
+  transform: translateZ(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+header h1::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
 }
 header h1:hover {
-  transform: scale(1.2) rotate(5deg);
-  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.5em 1em rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  box-shadow: inset 0 0 0 1px var(--color-secondary), 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 header h2 {
   max-width: 30ch;
@@ -570,7 +568,7 @@ nav ul a:hover::after, nav ul a:focus::after {
   width: 200px;
   height: 300px;
   transform: translateX(-50%);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20300'%3E%3Cpolygon fill='black'%20points='100,10%2050,90%20150,90'/%3E%3Cpolygon fill='black'%20points='100,50%2030,190%20170,190'/%3E%3Cpolygon fill='black'%20points='100,90%2020,260%20180,260'/%3E%3Crect%20x='90'%20y='260'%20width='20'%20height='40'%20fill='black'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%20300'%3E%3Cpolygon fill='%23041a0b'%20points='100,10%2050,90%20150,90'/%3E%3Cpolygon fill='%23041a0b'%20points='100,50%2030,190%20170,190'/%3E%3Cpolygon fill='%23041a0b'%20points='100,90%2020,260%20180,260'/%3E%3Crect%20x='90'%20y='260'%20width='20'%20height='40'%20fill='%238b4e2b'/%3E%3C/svg%3E") !important;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom center;
@@ -589,6 +587,18 @@ nav ul a:hover::after, nav ul a:focus::after {
 
 #guidelines {
   margin-top: 80px;
+  padding: 4rem 2rem;
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+#guidelines h2 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--color-primary);
 }
 #guidelines h3 {
   display: inline-block;
@@ -607,9 +617,13 @@ nav ul a:hover::after, nav ul a:focus::after {
     transform: rotate(-8deg) translateX(-30%);
   }
 }
-#guidelines .link-guidelines {
-  color: var(--color-background);
-  background-color: var(--color-primary);
+#guidelines p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  max-width: 75ch;
+  margin: 0 auto 1.5rem;
+  color: var(--color-text);
+  text-align: center;
 }
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   #guidelines p:nth-of-type(2) {
@@ -629,8 +643,20 @@ nav ul a:hover::after, nav ul a:focus::after {
     content: "← Whoa, text gradients!";
   }
 }
-#guidelines .container > a {
-  align-self: center;
+#guidelines .link-guidelines {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+#guidelines .link-guidelines:hover {
+  background-color: var(--color-secondary);
 }
 
 #about section:nth-child(2) {
@@ -783,7 +809,7 @@ nav ul a:hover::after, nav ul a:focus::after {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-.features.patterned li:nth-last-child(1):nth-child(odd) {
+  .features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -803,12 +829,12 @@ nav ul a:hover::after, nav ul a:focus::after {
   padding-top: 3em;
   transform: rotate(-15deg);
   transform-origin: bottom right;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23fff' fill-opacity='0.4'%3E%3Cpolygon points='20,0 15,10 25,10' /%3E%3Cpolygon points='20,5 12,18 28,18' /%3E%3Cpolygon points='20,12 10,26 30,26' /%3E%3Crect x='18' y='26' width='4' height='10' /%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='%23fff' fill-opacity='0.15'%3E%3Cpolygon points='20,0 15,10 25,10' /%3E%3Cpolygon points='20,5 12,18 28,18' /%3E%3Cpolygon points='20,12 10,26 30,26' /%3E%3Crect x='18' y='26' width='4' height='10' /%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: 90%;
-  color: var(--color-primary-alt);
+  color: white;
   font-size: 0.9rem;
-  content: "Grid FTW!";
+  content: "We ❤️ Grid";
 }
 
 .profile {
@@ -940,17 +966,20 @@ nav ul a:hover::after, nav ul a:focus::after {
 }
 .page-footer::before {
   display: inline-grid;
-  min-height: var(--logomark-height);
-  padding: var(--logomark-padding);
-  border: 0.16em solid var(--color-secondary);
-  border-radius: 0.5em;
-  background: linear-gradient(135deg, var(--color-background) 0%, rgba(255, 255, 255, 0.05) 100%);
-  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
   place-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform: scale(1) rotate(0deg);
-  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  width: 70%;
+  height: auto;
+  padding: 0.5em;
+  border: 2px solid var(--color-secondary);
+  border-radius: 0.6em;
+  background: linear-gradient(135deg, var(--color-background), transparent 70%), repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 4px, transparent 4px 8px);
+  box-shadow: inset 0 0 0 1px var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  user-select: none;
+  transform: translateZ(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -100%);
@@ -963,9 +992,17 @@ nav ul a:hover::after, nav ul a:focus::after {
   width: 100px;
   margin-top: 30px;
 }
+.page-footer::before::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05), transparent 60%);
+  pointer-events: none;
+  z-index: -1;
+}
 .page-footer::before:hover {
-  transform: scale(1.2) rotate(5deg);
-  box-shadow: 0.12em 0.12em 0 var(--color-background), 0 0.5em 1em rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+  box-shadow: inset 0 0 0 1px var(--color-secondary), 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 .page-footer p:first-child {
   margin-top: 3rem;
@@ -1089,3 +1126,36 @@ a:focus-visible {
   outline: 2px dashed var(--focus-color, #005a99);
   outline-offset: 2px;
 }
+
+article#about h2,
+article#guidelines h2,
+article#contribute h2,
+aside#styles h2 {
+  background-image: url("images/log.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-family: "Georgia", serif;
+  font-weight: bold;
+  width: 150vw;
+  height: 220px;
+  margin: 3rem 0 2rem;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 2rem auto 1.5rem auto;
+  margin-top: -60px;
+}
+
+article .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
