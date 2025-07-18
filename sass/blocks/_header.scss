@@ -8,15 +8,12 @@ header {
   min-height: 40vh;
   place-items: center;
   padding: 10vh 2rem;
-  background-image: url("images/forestheader.png"),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: 0 -38px, 17px -40px;
+  background-image: url("images/forestheader.webp");
+  background-repeat: no-repeat;
+  background-position: center bottom, 17px -40px;
+  background-size: cover, auto;
   color: var(--color-background);
   text-align: center;
-  background-size: cover, auto;
-  background-repeat: no-repeat, repeat-x;
-  background-position: center bottom, 17px -40px;      
 
   &::before {
     content: "";
@@ -27,9 +24,13 @@ header {
     height: 300px;
     background: #544343;
     transform-origin: bottom center;
-    animation: sway-trunk 3s ease-in-out infinite alternate;
     border-radius: 4px;
-    z-index: 1; 
+    z-index: 1;
+
+    opacity: 0;
+    animation:
+      fadeIn 0.5s ease-in 3s forwards,
+      sway-trunk 3s ease-in-out 3s infinite alternate;
   }
 
   &::after {
@@ -45,53 +46,45 @@ header {
       radial-gradient(circle at 70% 70%, #D6FFE5 30%, transparent 31%);
     border-radius: 50%;
     transform-origin: bottom center;
-    animation: sway-leaves 3s ease-in-out infinite alternate;
     z-index: 1;
+
+    opacity: 0;
+    animation:
+      fadeIn 0.5s ease-in 3s forwards,
+      sway-leaves 3s ease-in-out 3s infinite alternate;
   }
+
   .container {
     position: relative; 
     z-index: 2; 
-    opacity: 0;
-    transform: translateY(-30px);
-    animation: fadeInSlide 1.2s ease-out forwards;
-    animation-delay: 0.5s;
 
     h2, p, h1 {
-      color:var(--color-primary);
-    }
-   
-  }
-
-    .container a:nth-of-type(-n+2) {
-      color: white;
-    }
-
-    .container > a.link-github {
-      color: var(--color-background);
-    }
-    
-  @keyframes fadeInSlide {
-    0% {
-      opacity: 0;
-      transform: translateY(-30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+      color: var(--color-primary);
     }
   }
+
+  .container a:nth-of-type(-n+2) {
+    color: white;
+  }
+
+  .container > a.link-github {
+    color: var(--color-background);
+  }
+
 
   @keyframes sway-trunk {
     0%   { transform: rotate(-2deg); }
     100% { transform: rotate( 2deg); }
   }
 
-
   @keyframes sway-leaves {
     0%   { transform: translateX(0) rotate(-4deg); }
     100% { transform: translateX(6px) rotate( 4deg); }
   }
 
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
 
   h1 {
     @include logomark;
