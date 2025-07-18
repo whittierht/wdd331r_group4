@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&family=Cal+Sans&family=Kanit:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Recursive:wght@300..1000&family=Rye&display=swap");
+
 :root {
   --color-primary: #d6fff5;
   --color-primary-alt: #568ea3;
@@ -308,14 +309,12 @@ header {
   min-height: 40vh;
   place-items: center;
   padding: 10vh 2rem;
-  background-image: url("images/forestheader.png"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: 0 -38px, 17px -40px;
+  background-image: url("images/forestheader.webp");
+  background-repeat: no-repeat;
+  background-position: center bottom, 17px -40px;
+  background-size: cover, auto;
   color: var(--color-background);
   text-align: center;
-  background-size: cover, auto;
-  background-repeat: no-repeat, repeat-x;
-  background-position: center bottom, 17px -40px;
 }
 header::before {
   content: "";
@@ -326,9 +325,10 @@ header::before {
   height: 300px;
   background: #544343;
   transform-origin: bottom center;
-  animation: sway-trunk 3s ease-in-out infinite alternate;
   border-radius: 4px;
   z-index: 1;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in 3s forwards, sway-trunk 3s ease-in-out 3s infinite alternate;
 }
 header::after {
   content: "";
@@ -340,16 +340,13 @@ header::after {
   background: radial-gradient(circle at 50% 30%, #508484 40%, transparent 41%), radial-gradient(circle at 30% 70%, #568ea3 35%, transparent 36%), radial-gradient(circle at 70% 70%, #D6FFE5 30%, transparent 31%);
   border-radius: 50%;
   transform-origin: bottom center;
-  animation: sway-leaves 3s ease-in-out infinite alternate;
   z-index: 1;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in 3s forwards, sway-leaves 3s ease-in-out 3s infinite alternate;
 }
 header .container {
   position: relative;
   z-index: 2;
-  opacity: 0;
-  transform: translateY(-30px);
-  animation: fadeInSlide 1.2s ease-out forwards;
-  animation-delay: 0.5s;
 }
 header .container h2, header .container p, header .container h1 {
   color: var(--color-primary);
@@ -359,16 +356,6 @@ header .container a:nth-of-type(-n+2) {
 }
 header .container > a.link-github {
   color: var(--color-background);
-}
-@keyframes fadeInSlide {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 @keyframes sway-trunk {
   0% {
@@ -384,6 +371,11 @@ header .container > a.link-github {
   }
   100% {
     transform: translateX(6px) rotate(4deg);
+  }
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }
 header h1 {
@@ -938,7 +930,7 @@ nav ul a:hover::after, nav ul a:focus::after {
   position: relative;
   padding: 6rem 1rem 3rem;
   background-color: var(--color-primary);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/forestheader.png"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/forestheader.webp"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat, no-repeat, repeat-x;
   background-position: center bottom, center bottom, 17px -40px;
   background-size: cover, cover, auto;
@@ -1138,11 +1130,8 @@ article#about h2,
 article#guidelines h2,
 article#contribute h2,
 aside#styles h2 {
-  background-image: url("images/log.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-position: center;
-  color: #fff;
+  position: relative;
+  z-index: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1150,14 +1139,31 @@ aside#styles h2 {
   font-size: clamp(2.5rem, 6vw, 3.5rem);
   font-family: "Georgia", serif;
   font-weight: bold;
-  width: 150vw;
   height: 220px;
   margin: 3rem 0 2rem;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
+  padding: 0 1rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  color: #fff;
   margin: 2rem auto 1.5rem auto;
   margin-top: -60px;
+}
+article#about h2::before,
+article#guidelines h2::before,
+article#contribute h2::before,
+aside#styles h2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("images/log.webp");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  z-index: -1;
+  width: 100vw;
+  max-width: 2000px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 article .container {
