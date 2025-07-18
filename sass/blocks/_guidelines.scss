@@ -1,5 +1,19 @@
 #guidelines {
   margin-top: 80px;
+  padding: 4rem 2rem;
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+
+  h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 2rem;
+    text-align: center;
+    color: var(--color-primary);
+  }
+
   h3 {
     display: inline-block;
     transform: rotate(-8deg) translateX(-10%);
@@ -16,9 +30,13 @@
     }
   }
 
-  .link-guidelines {
-    color: var(--color-background);
-    background-color: var(--color-primary);
+  p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    max-width: 75ch;
+    margin: 0 auto 1.5rem;
+    color: var(--color-text);
+    text-align: center;
   }
 
   @supports (background-clip: text) or (-webkit-background-clip: text) {
@@ -41,8 +59,20 @@
     }
   }
 
-  .container > a {
-    align-self: center;
+  .link-guidelines {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--color-secondary);
+    }
   }
 }
-
