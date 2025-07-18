@@ -672,7 +672,7 @@ nav ul a:hover::after, nav ul a:focus::after {
   border-radius: 10px;
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease !important;
 }
 #guidelines .link-guidelines:hover {
   background-color: var(--color-secondary);
