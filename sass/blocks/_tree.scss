@@ -34,7 +34,8 @@ $text-color-on-log: #fff;
     background-position: center;
     z-index: -1;
 
-    width: 150vw;
+    width: 100vw;
+    max-width: 2000px;
     left: 50%;
     transform: translateX(-50%);
   }

@@ -1149,7 +1149,8 @@ aside#styles h2::before {
   background-size: 100% 100%;
   background-position: center;
   z-index: -1;
-  width: 150vw;
+  width: 100vw;
+  max-width: 2000px;
   left: 50%;
   transform: translateX(-50%);
 }
