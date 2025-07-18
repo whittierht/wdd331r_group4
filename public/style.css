@@ -8,7 +8,7 @@
   --color-primary-alt: #568ea3;
   --color-secondary: #508484;
   --color-background: #152828;
-  --color-text: rgb(118.725, 209.575, 187.4164634146);
+  --color-text: #77d2bb;
   --color-light: #fff;
   --color-anchor: #d6fff5;
   --font-family-header: Rye, cursive;
@@ -437,7 +437,7 @@ nav ul a {
   position: relative;
   display: inline-grid;
   padding: 0.5rem 0.5rem 0.5rem 2rem;
-  color: var(--color-secondary);
+  color: var(--color-primary);
   font-size: 1.25rem;
   text-decoration: none;
 }
@@ -583,6 +583,37 @@ nav ul a:hover::after, nav ul a:focus::after {
     height: 210px;
     transform: translateX(-50%) translateY(5%);
   }
+}
+
+#about blockquote {
+  --leaf-svg: url('data:image/svg+xml;utf8,<svg fill="%23508484" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3c0 0 9 1 11 9 1.35 4.97-3.28 8.31-8.07 7.98C3.86 19.71 1 16.65 1 13 1 9.57 4.22 6.83 5 3z"/></svg>');
+  --leaf2-svg: url('data:image/svg+xml;utf8,<svg fill="%23508484" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 2c0 0 6 2 9 9s-2 10-7 10c-5 0-7-5-7-8s2-8 5-11z"/></svg>');
+  background-color: var(--color-background);
+  background-image: var(--leaf-svg), var(--leaf2-svg);
+  background-repeat: no-repeat;
+  background-position: top right 1rem, bottom left 1rem;
+  background-size: 60px, 50px;
+  overflow: hidden;
+  padding: 1rem 2rem 5rem;
+  border-left: 6px solid var(--color-secondary);
+  border-right: 6px solid var(--color-secondary);
+  border-top: 1px solid var(--color-secondary);
+  border-bottom: 1px solid var(--color-secondary);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  color: var(--color-primary);
+}
+
+#about blockquote a {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#about blockquote strong {
+  display: flex;
+  color: var(--color-primary);
+  font-weight: bold;
 }
 
 #guidelines {
@@ -809,7 +840,7 @@ nav ul a:hover::after, nav ul a:focus::after {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-  .features.patterned li:nth-last-child(1):nth-child(odd) {
+.features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -964,46 +995,6 @@ nav ul a:hover::after, nav ul a:focus::after {
     transform: scale(1.2);
   }
 }
-.page-footer::before {
-  display: inline-grid;
-  place-content: center;
-  width: 70%;
-  height: auto;
-  padding: 0.5em;
-  border: 2px solid var(--color-secondary);
-  border-radius: 0.6em;
-  background: linear-gradient(135deg, var(--color-background), transparent 70%), repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 4px, transparent 4px 8px);
-  box-shadow: inset 0 0 0 1px var(--color-secondary);
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  user-select: none;
-  transform: translateZ(0);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -100%);
-  background-color: var(--color-background);
-  color: var(--color-primary);
-  font-size: 3rem;
-  content: "S";
-  padding-top: 1rem;
-  z-index: 2;
-  width: 100px;
-  margin-top: 30px;
-}
-.page-footer::before::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.05), transparent 60%);
-  pointer-events: none;
-  z-index: -1;
-}
-.page-footer::before:hover {
-  transform: scale(1.05);
-  box-shadow: inset 0 0 0 1px var(--color-secondary), 0 3px 6px rgba(0, 0, 0, 0.2);
-}
 .page-footer p:first-child {
   margin-top: 3rem;
   font-weight: var(--font-weight-strong);
@@ -1015,6 +1006,25 @@ nav ul a:hover::after, nav ul a:focus::after {
 
 footer p {
   color: var(--color-primary);
+}
+
+.page-footer a.link-twittercontact,
+.page-footer a.link-github,
+.page-footer a.link-rss,
+.page-footer a.link-support {
+  color: #152828;
+}
+.page-footer a.link-twittercontact:hover, .page-footer a.link-twittercontact:focus, .page-footer a.link-twittercontact:visited,
+.page-footer a.link-github:hover,
+.page-footer a.link-github:focus,
+.page-footer a.link-github:visited,
+.page-footer a.link-rss:hover,
+.page-footer a.link-rss:focus,
+.page-footer a.link-rss:visited,
+.page-footer a.link-support:hover,
+.page-footer a.link-support:focus,
+.page-footer a.link-support:visited {
+  color: #152828;
 }
 
 .skip-link {
@@ -1157,5 +1167,3 @@ article .container {
   padding-left: 0;
   padding-right: 0;
 }
-
-/*# sourceMappingURL=style.css.map */
