@@ -60,21 +60,7 @@
     0%, 100% { opacity: 0; transform: scale(1); }
     50% { opacity: 1; transform: scale(1.2); }
   }
-  &::before {
-    @include logomark;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -100%);
-    background-color: var(--color-background);
-    color: var(--color-primary);
-    font-size: 3rem;
-    content: "S";
-    padding-top: 1rem;
-    z-index: 2;
-    width: 100px;
-    margin-top: 30px;
-  }
-
+  
   p:first-child {
     margin-top: 3rem;
     font-weight: var(--font-weight-strong);
@@ -88,4 +74,19 @@
 footer p {
   
   color: var(--color-primary)
+}
+
+
+.page-footer {
+  a.link-twittercontact,
+  a.link-github,
+  a.link-rss,
+  a.link-support {
+    color: #152828;
+    &:hover,
+    &:focus,
+    &:visited {
+      color: #152828;
+    }
+  }
 }
