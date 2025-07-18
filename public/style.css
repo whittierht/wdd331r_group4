@@ -1,12 +1,11 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&family=Cal+Sans&family=Kanit:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100..900;1,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Recursive:wght@300..1000&family=Rye&display=swap");
-
 :root {
   --color-primary: #d6fff5;
   --color-primary-alt: #568ea3;
   --color-secondary: #508484;
   --color-background: #152828;
-  --color-text: #77d2bb;
+  --color-text: rgb(118.725, 209.575, 187.4164634146);
   --color-light: #fff;
   --color-anchor: #d6fff5;
   --font-family-header: Rye, cursive;
@@ -829,7 +828,7 @@ nav ul a:hover::after, nav ul a:focus::after {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-.features.patterned li:nth-last-child(1):nth-child(odd) {
+  .features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -863,6 +862,11 @@ nav ul a:hover::after, nav ul a:focus::after {
   margin: 1rem auto 10vh;
   padding: 1.25rem;
   z-index: 1;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+.profile:hover {
+  opacity: 1;
 }
 .profile h4 {
   margin: 0;
@@ -1170,3 +1174,5 @@ article .container {
   padding-left: 0;
   padding-right: 0;
 }
+
+/*# sourceMappingURL=style.css.map */
