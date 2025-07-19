@@ -703,7 +703,7 @@ nav ul a:hover::after, nav ul a:focus::after {
 #about section:nth-child(2) ul li {
   margin: 0.25em;
   padding: 0.25em 0.5em;
-  background-color: var(--color-light);
+  background-color: var(--color-primary);
 }
 
 #about section:nth-child(2)::before {
@@ -739,9 +739,10 @@ nav ul a:hover::after, nav ul a:focus::after {
 #files .container {
   display: inline-block;
   padding: 5vmin;
-  outline: 4px dashed var(--color-secondary);
+  outline: 10px double var(--color-secondary);
   background-color: var(--color-background);
   text-align: center;
+  border-radius: 10px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -754,7 +755,7 @@ nav ul a:hover::after, nav ul a:focus::after {
   }
 }
 #files .container a {
-  color: var(--color-background);
+  color: var(--color-primary);
 }
 #files .container a:not(:last-child) {
   margin: 0.5rem;
@@ -1130,6 +1131,7 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+
 article#about h2,
 article#guidelines h2,
 article#contribute h2,
@@ -1174,5 +1176,6 @@ article .container {
   padding-left: 0;
   padding-right: 0;
 }
+
 
 /*# sourceMappingURL=style.css.map */
