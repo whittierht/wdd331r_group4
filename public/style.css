@@ -8,7 +8,7 @@
   --color-primary-alt: #568ea3;
   --color-secondary: #508484;
   --color-background: #152828;
-  --color-text: #77d2bb;
+  --color-text: rgb(118.725, 209.575, 187.4164634146);
   --color-light: #fff;
   --color-anchor: #d6fff5;
   --font-family-header: Rye, cursive;
@@ -658,7 +658,7 @@ nav ul a:hover::after, nav ul a:focus::after {
 #about section:nth-child(2) ul li {
   margin: 0.25em;
   padding: 0.25em 0.5em;
-  background-color: var(--color-light);
+  background-color: var(--color-primary);
 }
 
 #about section:nth-child(2)::before {
@@ -694,9 +694,10 @@ nav ul a:hover::after, nav ul a:focus::after {
 #files .container {
   display: inline-block;
   padding: 5vmin;
-  outline: 4px dashed var(--color-secondary);
+  outline: 10px double var(--color-secondary);
   background-color: var(--color-background);
   text-align: center;
+  border-radius: 10px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -709,7 +710,7 @@ nav ul a:hover::after, nav ul a:focus::after {
   }
 }
 #files .container a {
-  color: var(--color-background);
+  color: var(--color-primary);
 }
 #files .container a:not(:last-child) {
   margin: 0.5rem;
@@ -783,7 +784,7 @@ nav ul a:hover::after, nav ul a:focus::after {
 }
 @media (min-width: 515px) and (max-width: 765px) {
   #styles .features li:nth-last-child(1):nth-child(odd),
-.features.patterned li:nth-last-child(1):nth-child(odd) {
+  .features.patterned li:nth-last-child(1):nth-child(odd) {
     grid-column: span 2;
   }
 }
@@ -1089,3 +1090,5 @@ a:focus-visible {
   outline: 2px dashed var(--focus-color, #005a99);
   outline-offset: 2px;
 }
+
+/*# sourceMappingURL=style.css.map */
