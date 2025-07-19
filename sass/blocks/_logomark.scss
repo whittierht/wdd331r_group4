@@ -1,26 +1,40 @@
 @mixin logomark() {
   display: inline-grid;
-  min-height: var(--logomark-height);
-  padding: var(--logomark-padding);
-  border: 0.16em solid var(--color-secondary);
-  border-radius: 0.5em;
-  background: linear-gradient(135deg, var(--color-background) 0%, rgba(255, 255, 255, 0.05) 100%);
-  box-shadow:
-    0.12em 0.12em 0 var(--color-background),
-    0 0.3em 0.6em rgba(0, 0, 0, 0.2);
   place-content: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  transform: scale(1) rotate(0deg);
-  box-shadow:
-    0.12em 0.12em 0 var(--color-background),
-    0 0.3em 0.6em rgba(0, 0, 0, 0.2);
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  width: 70%;
+  height: auto;
+  padding: 0.5em;
+
+  border: 2px solid var(--color-secondary);
+  border-radius: 0.6em;
+
+  background:
+    linear-gradient(135deg, var(--color-background), transparent 70%),
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 4px, transparent 4px 8px);
+
+  box-shadow: inset 0 0 0 1px var(--color-secondary);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  user-select: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.05), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  transform: translateZ(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
   &:hover {
-    transform: scale(1.2) rotate(5deg);
+    transform: scale(1.05);
     box-shadow:
-      0.12em 0.12em 0 var(--color-background),
-      0 0.5em 1em rgba(0, 0, 0, 0.3);
+      inset 0 0 0 1px var(--color-secondary),
+      0 3px 6px rgba(0, 0, 0, 0.2);
   }
 }

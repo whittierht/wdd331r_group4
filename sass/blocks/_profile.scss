@@ -4,6 +4,13 @@
   margin: 1rem auto 10vh;
   padding: 1.25rem;
   z-index: 1;
+  opacity: .5;
+  transition: all .3s ease;
+
+    &:hover {
+    opacity: 1;
+  }
+
 
   h4 {
     margin: 0;

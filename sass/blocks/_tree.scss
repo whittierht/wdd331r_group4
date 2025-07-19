@@ -1,0 +1,61 @@
+$log-color: #5e3c23;
+$log-ring: #70452a;
+$text-color-on-log: #fff;
+
+@mixin tree-log-image {
+  position: relative;
+  z-index: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+
+  height: 220px;
+  margin: 3rem 0 2rem;
+
+  padding: 0 1rem;
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  color: $text-color-on-log;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("images/log.webp");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    z-index: -1;
+
+    width: 100vw;
+    max-width: 2000px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+
+
+
+
+
+article#about h2,
+article#guidelines h2,
+article#contribute h2,
+aside#styles h2 {
+   @include tree-log-image;
+  margin: 2rem auto 1.5rem auto;
+  margin-top: -60px;
+}
+
+article .container {
+  padding-left: 0;
+  padding-right: 0;
+}
